@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Edit User</h2>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        
+        <div>
+            <label for="username">{{ form.username.label }}</label><br>
+            {{ form.username(size=32, id='username') }}<br>
+            {% if form.username.errors %}
+                <span class="error">{{ form.username.errors[0] }}</span>
+            {% endif %}
+        </div>
+        
+        <div>
+            <label for="email">{{ form.email.label }}</label><br>
+            {{ form.email(size=32, id='email') }}<br>
+            {% if form.email.errors %}
+                <span class="error">{{ form.email.errors[0] }}</span>
+            {% endif %}
+        </div>
+        
+        <div>
+            <label for="role">{{ form.role.label }}</label><br>
+            {{ form.role(size=32, id='role') }}<br>
+            {% if form.role.errors %}
+                <span class="error">{{ form.role.errors[0] }}</span>
+            {% endif %}
+        </div>
+        
+        <div>
+            {{ form.submit() }}
+        </div>
+    </form>
+{% endblock %}
